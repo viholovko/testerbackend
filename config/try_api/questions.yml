@@ -1,0 +1,74 @@
+title: 'Questions'
+methods:
+  -
+    title: 'Create'
+    path: '/questions'
+    method: 'post'
+    parameters:
+      -
+        name: 'question'
+        type: 'string'
+        required: true
+      -
+        name: 'type'
+        type: 'string'
+        description: 'text | one | many | calculate'
+      -
+        name: 'options'
+        type: 'array'
+        description: 'Options'
+        parameters:
+          -
+            type: 'string'
+
+    example_responses:
+      -
+        code: 200
+        response: >
+         {
+           "message": "Question has been successfully saved"
+         }
+        type: 'json'
+
+  -
+    title: 'Show'
+    path: '/questions/:id'
+    method: 'get'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "id": "5ae30ba01e911e5f128e16d4",
+            "title": "Test A",
+            "created_at": "27 Apr 2018 at 11:38"
+          }
+  -
+    title: 'Update'
+    path: '/questions/:id'
+    method: 'put'
+    parameters:
+      -
+        name: 'question'
+        type: 'string'
+        required: true
+      -
+        name: 'type'
+        type: 'string'
+        description: 'text | one | many | calculate'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+           "message": "Test has been successfully updated"
+          }
+
+  -
+    title: 'Delete'
+    path: '/questions/:id'
+    method: 'delete'
+    example_responses:
+      -
+        code: 200
+        type: 'json'

@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.arealmoney",
+    "sha256_cert_fingerprints":
+    ["A8:9C:03:35:DC:EC:C5:EB:D4:6C:F2:90:30:A9:42:E1:F2:DB:54:F4:84:6F:2A:62:F5:85:BE:38:2A:A0:81:58"]
+  }
+}]

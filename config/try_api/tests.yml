@@ -1,0 +1,97 @@
+title: 'Tests'
+methods:
+  -
+    title: 'Index'
+    path: '/tests'
+    method: 'get'
+    parameters:
+      -
+        name: 'all'
+        type: 'boolean'
+      -
+        name: 'page'
+        type: 'integer'
+      -
+        name: 'per_page'
+        type: 'integer'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "tests": [
+              {
+                "id": "5ae30c0b1e911e5f128e16d6",
+                "title": "Test A",
+                "created_at": "27 Apr 2018 at 11:39"
+              }
+            ],
+            "count": 1
+          }
+
+  -
+    title: 'Create'
+    path: '/tests'
+    method: 'post'
+    parameters:
+      -
+        name: 'title'
+        type: 'string'
+        required: true
+        description: 'Name of Test'
+      -
+        name: 'status'
+        type: 'boolean'
+        description: 'Is test ready for use'
+    example_responses:
+      -
+        code: 200
+        response: >
+         {
+           "message": "Test has been successfully saved"
+         }
+        type: 'json'
+
+  -
+    title: 'Show'
+    path: '/tests/:id'
+    method: 'get'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+            "id": "5ae30ba01e911e5f128e16d4",
+            "title": "Test A",
+            "created_at": "27 Apr 2018 at 11:38"
+          }
+  -
+    title: 'Update'
+    path: '/tests/:id'
+    method: 'put'
+    parameters:
+      -
+        name: 'title'
+        type: 'string'
+        required: true
+        description: 'Name of Test'
+      -
+        name: 'status'
+        type: 'boolean'
+        description: 'Is test ready for use'
+    example_responses:
+      -
+        code: 200
+        response: >
+          {
+           "message": "Test has been successfully updated"
+          }
+
+  -
+    title: 'Delete'
+    path: '/tests/:id'
+    method: 'delete'
+    example_responses:
+      -
+        code: 200
+        type: 'json'

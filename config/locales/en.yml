@@ -1,0 +1,79 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hello world"
+  languages:
+    english: 'English'
+    ukrainian: 'Ukrainian'
+
+  profile:
+    edit_profile: 'Edit profile'
+    labels:
+      login: 'Login'
+      password: 'Password'
+      password_confirmation: 'Password Confirmation'
+      leave_blank: "Leave blank if you don't want to change it"
+      current_password: 'Current Password'
+    messages:
+      wrong_current_password: 'Wrong current password.'
+      profile_updated: 'Profile successfully updated.'
+
+  validations:
+    cant_be_blank: "Can't be blank."
+
+  headers:
+    contacts: 'Contacts'
+
+  datetime:
+    ago: 'ago'
+    at: 'at'
+  validations:
+    cant_be_blank: "Can't be blank."
+
+  actions:
+    submit: "Submit"
+    confirm: "Confirm"
+    cancel: "Cancel"
+    edit: 'Edit'
+    delete: 'Delete'
+    view: 'View'
+
+  contact:
+    new: "New Contact"
+    edit: "Edit Contact"
+    fields:
+      name: "Name"
+      email: "Email"
+      subject: "Subject"
+      message: "Message"
+      created_at: "Created at"
+      updated_at: "Updated at"
+    messages:
+      success_upsert: 'Contact successfully saved.'
+
+  registered_user:
+    messages:
+      created: 'Спасибо. Заявка успешно добавлена.'
+      not_added: ''
+
+  errors:
+    format: "%{message}"

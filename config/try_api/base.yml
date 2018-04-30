@@ -1,0 +1,12 @@
+name: 'Tester'
+host: 'http://localhost'
+port: 3000
+api_prefix: 'api/v1'
+
+include!: variables
+
+menu_items:
+  -
+    include!: tests
+  -
+    include!: questions
