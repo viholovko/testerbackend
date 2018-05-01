@@ -53,7 +53,7 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   end
 
   def question_params
-    allowed_params = params.permit :id, :question, :type
+    allowed_params = params.permit :id, :question, :type, :order
 
     allowed_params
   end

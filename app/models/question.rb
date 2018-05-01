@@ -5,6 +5,7 @@ class Question < ApplicationRecord
 
   field :question, type: String
   field :type, type: String, default: 'text'
+  field :order, type: Integer, default: 0
 
   belongs_to :test, optional: true
 

@@ -14,6 +14,9 @@ methods:
         type: 'string'
         description: 'text | one | many | calculate'
       -
+        name: 'order'
+        type: 'integer'
+      -
         name: 'options'
         type: 'array'
         description: 'Options'
@@ -52,6 +55,9 @@ methods:
         name: 'question'
         type: 'string'
         required: true
+      -
+        name: 'order'
+        type: 'integer'
       -
         name: 'type'
         type: 'string'
