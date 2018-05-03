@@ -7,6 +7,7 @@ class Question < ApplicationRecord
   field :type, type: String, default: 'numeric'
   field :order, type: Integer, default: 0
   field :test_id, type: String
+  field :additional, type: Boolean, default: false
 
   def self.search_query(params)
     query_params = {}

@@ -7,19 +7,19 @@ class Api::V1::QuestionsController < Api::V1::BaseController
     @question = Question.new question_params
     if @question.save
       params[:options].each do |option|
-        option = Option.new(text: option, question: @question)
+        option = Option.new(text: option, question_id: @question.id.to_s)
         option.save
       end
       @options = Option.where(question_id: @question.id)
 
     else
-      render json: {errors: @test.errors.full_messages }, status: :unprocessable_entity
+      render json: {errors: @question.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def update
     if @question.update_attributes question_params
-      render json: { message: 'Question has been successfully saved' }
+      @options = Option.where(question_id: @question.id)
     else
       render json: { errors: @question.errors.full_messages }, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   end
 
   def question_params
-    allowed_params = params.permit :id, :question, :type, :order, :test_id
+    allowed_params = params.permit :id, :question, :type, :order, :test_id, :additional
 
     allowed_params
   end

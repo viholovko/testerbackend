@@ -71,6 +71,12 @@ methods:
         name: 'status'
         type: 'boolean'
         description: 'Is test ready for use'
+      -
+        name: 'question_ids'
+        type: 'array'
+        parameters:
+          -
+            type: 'string'
     example_responses:
       -
         code: 200

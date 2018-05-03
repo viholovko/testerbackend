@@ -4,7 +4,7 @@ class Option < ApplicationRecord
   # include Mongoid::Paperclip
 
   field :text, type: String
-  belongs_to :question, optional: true
+  field :question_id, type: String
 
   def self.search_query(params)
     query_params = {}

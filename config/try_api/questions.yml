@@ -19,7 +19,10 @@ methods:
         description: 'numeric | check | order | radio'
       -
         name: 'order'
-        type: 'integer'
+        type: 'string'
+      -
+        name: 'additional'
+        type: 'boolean'
       -
         name: 'options'
         type: 'array'
@@ -99,7 +102,10 @@ methods:
         required: true
       -
         name: 'order'
-        type: 'integer'
+        type: 'string'
+      -
+        name: 'additional'
+        type: 'boolean'
       -
         name: 'test_id'
         type: 'string'

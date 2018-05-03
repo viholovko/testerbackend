@@ -7,6 +7,7 @@ json.tests @tests.each do |test|
     json.question question.question
     json.type question.type
     json.order question.order
+    json.additional question.additional
     json.options Option.where(question_id: question.id)&.each do |option|
       json.id option.id.to_s
       json.text option.text
