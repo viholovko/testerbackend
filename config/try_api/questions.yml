@@ -10,9 +10,13 @@ methods:
         type: 'string'
         required: true
       -
+        name: 'test_id'
+        type: 'string'
+        required: true
+      -
         name: 'type'
         type: 'string'
-        description: 'text | one | many | calculate'
+        description: 'numeric | check | order | radio'
       -
         name: 'order'
         type: 'integer'
@@ -29,8 +33,28 @@ methods:
         code: 200
         response: >
          {
-           "message": "Question has been successfully saved"
+           "question": {
+             "id": "5aeabd111e911e7f608b45de",
+             "question": "Q3",
+             "type": "numeric",
+             "order": 1000,
+             "options": [
+               {
+                 "id": "5aeabd111e911e7f608b45df",
+                 "text": "O1"
+               },
+               {
+                 "id": "5aeabd111e911e7f608b45e0",
+                 "text": "O2"
+               },
+               {
+                 "id": "5aeabd111e911e7f608b45e1",
+                 "text": "O3"
+               }
+             ]
+           }
          }
+
         type: 'json'
 
   -
@@ -42,10 +66,28 @@ methods:
         code: 200
         response: >
           {
-            "id": "5ae30ba01e911e5f128e16d4",
-            "title": "Test A",
-            "created_at": "27 Apr 2018 at 11:38"
+            "question": {
+              "id": "5aeabd111e911e7f608b45de",
+              "question": "Q3",
+              "type": "numeric",
+              "order": 1000,
+              "options": [
+                {
+                  "id": "5aeabd111e911e7f608b45df",
+                  "text": "O1"
+                },
+                {
+                  "id": "5aeabd111e911e7f608b45e0",
+                  "text": "O2"
+                },
+                {
+                  "id": "5aeabd111e911e7f608b45e1",
+                  "text": "O3"
+                }
+              ]
+            }
           }
+
   -
     title: 'Update'
     path: '/questions/:id'
@@ -59,9 +101,13 @@ methods:
         name: 'order'
         type: 'integer'
       -
+        name: 'test_id'
+        type: 'string'
+        required: true
+      -
         name: 'type'
         type: 'string'
-        description: 'text | one | many | calculate'
+        description: 'numeric | check | order | radio'
     example_responses:
       -
         code: 200

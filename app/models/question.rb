@@ -4,10 +4,9 @@ class Question < ApplicationRecord
   include Mongoid::Paperclip
 
   field :question, type: String
-  field :type, type: String, default: 'text'
+  field :type, type: String, default: 'numeric'
   field :order, type: Integer, default: 0
-
-  belongs_to :test, optional: true
+  field :test_id, type: String
 
   def self.search_query(params)
     query_params = {}

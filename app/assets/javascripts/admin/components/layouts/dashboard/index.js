@@ -24,11 +24,11 @@ class HomePage extends Component {
             open={this.state.open}
             onRequestChange={(open) => this.setState({open})}
           >
-            <MenuItem onTouchTap={this.handleToggle} href='#/admins' leftIcon={<AdminsIcon />}>
-              Admins
-            </MenuItem>
             <MenuItem onTouchTap={this.handleToggle} href='#/tests' leftIcon={<AdminsIcon />}>
               Tests
+            </MenuItem>
+            <MenuItem onTouchTap={this.handleToggle} href='#/admins' leftIcon={<AdminsIcon />}>
+              Admins
             </MenuItem>
           </Drawer>
           <Grid>

@@ -3,16 +3,6 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   skip_before_action :authenticate_user
   before_action :find_question, only: %i[show update destroy]
 
-  def index
-    page = params[:page].to_i
-    page = 1 if page < 1
-    per_page = params[:per_page].to_i
-    per_page = 10 if per_page < 1
-
-    @count = Question.search_query(params).count
-    @tests = Question.search_query(params).offset((page - 1) * per_page).limit(per_page)
-  end
-
   def create
     @question = Question.new question_params
     if @question.save
@@ -20,8 +10,8 @@ class Api::V1::QuestionsController < Api::V1::BaseController
         option = Option.new(text: option, question: @question)
         option.save
       end
+      @options = Option.where(question_id: @question.id)
 
-      render json: { id: @question.id.to_s, message: 'Question has been successfully saved' }
     else
       render json: {errors: @test.errors.full_messages }, status: :unprocessable_entity
     end
@@ -44,7 +34,9 @@ class Api::V1::QuestionsController < Api::V1::BaseController
     end
   end
 
-  def show; end
+  def show
+    @options = Option.where(question_id: @question.id)
+  end
 
   private
 
@@ -53,7 +45,7 @@ class Api::V1::QuestionsController < Api::V1::BaseController
   end
 
   def question_params
-    allowed_params = params.permit :id, :question, :type, :order
+    allowed_params = params.permit :id, :question, :type, :order, :test_id
 
     allowed_params
   end
