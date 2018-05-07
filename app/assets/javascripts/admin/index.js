@@ -14,6 +14,10 @@ import Tests from './components/tests';
 import Test from './components/tests/show';
 import TestForm from './components/tests/form';
 
+import Admins from './components/admins/index'
+import AdminForm from './components/admins/form'
+import Admin from './components/admins/show'
+
 window.onload = function () {
   injectTapEventPlugin();
   ReactDOM.render(

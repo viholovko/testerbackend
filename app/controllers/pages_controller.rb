@@ -10,4 +10,8 @@ class PagesController < ApplicationController
     render layout: 'admin'
   end
 
+  def test
+    render layout: 'test'
+  end
+
 end
