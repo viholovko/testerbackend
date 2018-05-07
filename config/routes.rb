@@ -32,6 +32,10 @@ Rails.application.routes.draw do
         end
       end
     end
+    get '/test', to: 'pages#test'
+    namespace :test do
+      resources :tests, only: [:create, :show]
+    end
 
     namespace :api do
       namespace :v1 do

@@ -41,14 +41,14 @@ class Admin::TestsController < Admin::BaseController
 
   private
 
-  def find_test
-    @test = Test.find params[:id]
-  end
+    def find_test
+      @test = Test.find params[:id]
+    end
 
-  def test_params
-    allowed_params = params.require(:test).permit :id, :title, :status
+    def test_params
+      allowed_params = params.require(:test).permit :id, :title, :status
 
-    allowed_params
-  end
+      allowed_params
+    end
 
 end
