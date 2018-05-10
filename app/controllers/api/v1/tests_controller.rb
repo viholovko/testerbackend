@@ -50,7 +50,7 @@ class Api::V1::TestsController < Api::V1::BaseController
   end
 
   def test_params
-    allowed_params = params.permit :id, :title, :status
+    allowed_params = params.permit :id, :title, :description, :status
 
     allowed_params
   end

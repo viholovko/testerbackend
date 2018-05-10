@@ -4,6 +4,7 @@ class Option < ApplicationRecord
   # include Mongoid::Paperclip
 
   field :text, type: String
+  field :rate, type: Float
   field :question_id, type: String
 
   def self.search_query(params)

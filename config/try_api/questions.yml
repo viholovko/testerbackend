@@ -29,7 +29,11 @@ methods:
         description: 'Options'
         parameters:
           -
+            name: 'text'
             type: 'string'
+          -
+            name: 'rate'
+            type: 'double'
 
     example_responses:
       -
@@ -37,27 +41,30 @@ methods:
         response: >
          {
            "question": {
-             "id": "5aeabd111e911e7f608b45de",
-             "question": "Q3",
+             "id": "5af41c381e911e3ead2982df",
+             "question": "Q111",
              "type": "numeric",
-             "order": 1000,
+             "order": 0,
+             "additional": false,
              "options": [
                {
-                 "id": "5aeabd111e911e7f608b45df",
-                 "text": "O1"
+                 "id": "5af41c381e911e3ead2982e0",
+                 "text": "O1",
+                 "rate": 0.1
                },
                {
-                 "id": "5aeabd111e911e7f608b45e0",
-                 "text": "O2"
+                 "id": "5af41c381e911e3ead2982e1",
+                 "text": "O2",
+                 "rate": 1
                },
                {
-                 "id": "5aeabd111e911e7f608b45e1",
-                 "text": "O3"
+                 "id": "5af41c381e911e3ead2982e2",
+                 "text": "O3",
+                 "rate": 2
                }
              ]
            }
          }
-
         type: 'json'
 
   -
@@ -70,22 +77,26 @@ methods:
         response: >
           {
             "question": {
-              "id": "5aeabd111e911e7f608b45de",
-              "question": "Q3",
+              "id": "5af41c381e911e3ead2982df",
+              "question": "Q111",
               "type": "numeric",
-              "order": 1000,
+              "order": 0,
+              "additional": false,
               "options": [
                 {
-                  "id": "5aeabd111e911e7f608b45df",
-                  "text": "O1"
+                  "id": "5af41c381e911e3ead2982e0",
+                  "text": "O1",
+                  "rate": 0.1
                 },
                 {
-                  "id": "5aeabd111e911e7f608b45e0",
-                  "text": "O2"
+                  "id": "5af41c381e911e3ead2982e1",
+                  "text": "O2",
+                  "rate": 1
                 },
                 {
-                  "id": "5aeabd111e911e7f608b45e1",
-                  "text": "O3"
+                  "id": "5af41c381e911e3ead2982e2",
+                  "text": "O3",
+                  "rate": 2
                 }
               ]
             }

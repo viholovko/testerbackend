@@ -7,5 +7,6 @@ json.question do
   json.options @options.each do |option|
     json.id option.id.to_s
     json.text option.text
+    json.rate option.rate
   end
 end

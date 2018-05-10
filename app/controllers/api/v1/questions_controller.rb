@@ -7,7 +7,7 @@ class Api::V1::QuestionsController < Api::V1::BaseController
     @question = Question.new question_params
     if @question.save
       params[:options].each do |option|
-        option = Option.new(text: option, question_id: @question.id.to_s)
+        option = Option.new(text: option['text'], rate: option['rate'].to_f, question_id: @question.id.to_s)
         option.save
       end
       @options = Option.where(question_id: @question.id)

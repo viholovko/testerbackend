@@ -6,6 +6,7 @@ class Test < ApplicationRecord
   # TEST_TYPES = %w[radio checkbox answer].freeze
 
   field :title, type: String
+  field :description, type: String
   field :status, type: Boolean, default: false
   field :created_at
   field :updated_at
@@ -15,6 +16,7 @@ class Test < ApplicationRecord
 
     query_params[:id] = params[:id] if params[:id].present?
     query_params[:title] = %r{.*#{params[:title]}.*}i if params[:title].present?
+    query_params[:description] = %r{.*#{params[:description]}.*}i if params[:description].present?
     q.where(tests[:status].eq(params[:status]))              if params[:status].present?
     q.where(tests[:type].eq(params[:type]))                  if params[:type].present?
 
