@@ -23,4 +23,32 @@ class Question < ApplicationRecord
     Question.where(query_params).order(sort_column => sort_type)
   end
 
+  def to_json
+    result = {
+      id: id.to_s,
+      question: question,
+      type: type,
+      order: order,
+      test_id: test_id,
+      additional: additional
+    }
+
+    result.to_hash
+  end
+
+  def to_json_params(date)
+    result = {
+      id: id.to_s,
+      question: question,
+      type: type,
+      order: order,
+      test_id: test_id,
+      additional: additional,
+      answer: date
+    }
+
+    result.to_hash
+  end
+
+
 end

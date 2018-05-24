@@ -4,7 +4,6 @@ import {FormGroup, Row, Col} from 'react-bootstrap';
 import {Paper, RaisedButton, FlatButton, TextField, CircularProgress, Toggle, Divider,
   Step, Stepper, StepLabel, StepContent, Checkbox, RadioButton, RadioButtonGroup, Table, TableBody, TableRow, TableRowColumn
 } from 'material-ui';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 import {paperStyle} from '../common/styles';
 import SortableList from '../common/sortable-list.component';
 import {show, upsert} from '../../services/test';
@@ -83,8 +82,9 @@ class TestForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        const {answers} = this.state;
         const {test} = this.state;
-        upsert(test)
+        upsert(answers, test)
             .success(res => {
                 location.hash = '#/tests';
             })
@@ -225,6 +225,7 @@ class TestForm extends Component {
             </Col>
           </Row>
           <hr/>
+          <form onSubmit={this.handleSubmit}>
           <Stepper activeStep={stepIndex}
                    orientation='vertical'
           >
@@ -250,6 +251,20 @@ class TestForm extends Component {
               })
             }
           </Stepper>
+
+
+            <FormGroup>
+              <Row>
+                <Col sm={4} smOffset={8} className="text-right">
+                  <br/>
+                  <CircularProgress className={isLoading && progress > 0 ? 'loading-spinner' : 'hidden'}
+                                    mode="determinate" value={progress} size={36}/>
+                  <RaisedButton type='submit' primary={true} className='pull-right' label="Save"
+                                disabled={isLoading}/>
+                </Col>
+              </Row>
+            </FormGroup>
+          </form>
         </Paper>
       )
     }

@@ -3,7 +3,7 @@ json.test do
   json.title @test.title
   json.description @test.description
   json.report_count 0
-  json.url 'url'
+  json.url "http://localhost:3000/test/#/tests/#{@test.id.to_s}"
   json.created_at @test.created_at
   json.questions Question.where(test_id: @test.id)&.each do |question|
     json.id question.id.to_s

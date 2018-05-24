@@ -19,4 +19,15 @@ class Option < ApplicationRecord
     Option.where(query_params).order(sort_column => sort_type)
   end
 
+  def to_json_date
+    result = {
+      id: id.to_s,
+      text: text,
+      rate: rate,
+      question_id: question_id
+    }
+
+    result
+  end
+
 end

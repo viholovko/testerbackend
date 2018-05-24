@@ -1,15 +1,62 @@
 class Test::TestsController < Test::BaseController
 
-  skip_before_action :authenticate_user, only: [:show]
+  skip_before_action :authenticate_user, only: [:show, :update, :create]
   before_action :find_test, only: %i[show update destroy]
 
 
   def create
-    @test = Test.new test_params
-    if @test.save
-      render json: { message: 'Test has been successfully saved' }
+    answers = []
+    answers_date = []
+    params[:answers].each { |k, v|  answers.push(v)}
+    test_id = ''
+    answers.each do |answer|
+      question = Question.find_by(id: answer['question_id'])
+      answer_date = []
+      test_id = question.test_id
+
+      case question.type
+        when "numeric"
+          result = {
+            id: '',
+            value: answer['value'],
+            points: 0
+          }
+          answer_date.push(result)
+        when "check"
+          options = answer['value'].split(",")
+
+          options.each do |option|
+            option_date = Option.find_by(id: option)
+            answer_date.push(option_date.to_json_date)
+          end
+        when "order"
+          options = answer['value'].split(",")
+          options.each do |option|
+            option_date = Option.find_by(id: option)
+            answer_date.push(option_date.to_json_date)
+          end
+        when "radio"
+          options = answer['value'].split(",")
+          options.each do |option|
+            option_date = Option.find_by(id: option)
+            answer_date.push(option_date.to_json_date)
+          end
+        else
+          puts('It is not a string')
+      end
+
+      result = {
+        question: question.to_json,
+        answers: answer_date
+      }
+      answers_date.push(result.to_hash)
+    end
+
+    @record = Record.create(test_id: test_id, record: answers_date.to_json.to_s)
+    if @record.save
+      render json: { message: 'Your results has been successfully saved' }
     else
-      render json: {errors: @test.errors.full_messages }, status: :unprocessable_entity
+      render json: {errors: @record.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -23,8 +70,7 @@ class Test::TestsController < Test::BaseController
   end
 
   def test_params
-    allowed_params = params.require(:test).permit :id, :title, :status
-
+    allowed_params = params[:answers]
     allowed_params
   end
 

@@ -19,7 +19,7 @@ window.onload = function () {
           <Route name="dashboard" path='' component={DashboardLayout}>
             <IndexRoute name="tests" component={TestForm} />
 
-            <Route name='edit_test' path='test/:id' component={TestForm} />
+            <Route name='edit_test' path='tests/:id' component={TestForm} />
 
           </Route>
         </Route>

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user
 
   def index
-    render layout: 'admin'
+    render layout: 'test'
   end
 
   def admin

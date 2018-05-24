@@ -10,3 +10,5 @@ menu_items:
     include!: tests
   -
     include!: questions
+  -
+    include!: records
