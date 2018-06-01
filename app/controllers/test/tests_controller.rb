@@ -1,7 +1,7 @@
 class Test::TestsController < Test::BaseController
 
-  skip_before_action :authenticate_user, only: [:show, :update, :create]
-  before_action :find_test, only: %i[show update destroy]
+  skip_before_action :authenticate_user, only: [:show, :create]
+  before_action :find_test, only: %i[show]
 
 
   def create
@@ -49,10 +49,10 @@ class Test::TestsController < Test::BaseController
         question: question.to_json,
         answers: answer_date
       }
-      answers_date.push(result.to_hash)
+      answers_date.push(result)
     end
 
-    @record = Record.create(test_id: test_id, record: answers_date.to_json.to_s)
+    @record = Record.create(test_id: test_id, record: answers_date)
     if @record.save
       render json: { message: 'Your results has been successfully saved' }
     else

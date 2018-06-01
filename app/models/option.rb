@@ -27,7 +27,7 @@ class Option < ApplicationRecord
       question_id: question_id
     }
 
-    result
+    result.to_hash
   end
 
 end

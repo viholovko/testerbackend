@@ -1,6 +1,6 @@
 name: 'Tester'
-host: 'http://31.131.20.79'
-port: 84
+host: 'http://localhost'
+port: 3000
 api_prefix: 'api/v1'
 
 include!: variables

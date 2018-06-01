@@ -4,7 +4,7 @@ class Record < ApplicationRecord
   # include Mongoid::Paperclip
 
   field :test_id, type: String
-  field :record,  type: String
+  field :record,  type: Array
 
   def self.search_query(params)
     query_params = {}
