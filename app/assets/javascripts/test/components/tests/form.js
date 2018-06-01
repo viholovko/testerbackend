@@ -71,10 +71,14 @@ class TestForm extends Component {
             }
           });
         case 'order':
+          let data =[];
+          value.map((quest, index) => {
+            data.push(quest.id);
+          })
           this.setState({
             answers:{
               ...answers,
-              [question.id]: value
+              [question.id]: data
             }
           });
       }

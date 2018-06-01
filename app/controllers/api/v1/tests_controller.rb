@@ -16,7 +16,7 @@ class Api::V1::TestsController < Api::V1::BaseController
   def create
     @test = Test.new test_params
     if @test.save
-      params[:question_ids].each do |question_id|
+      params[:question_ids]&.each do |question_id|
         question = Question.find_by(id: question_id.to_s)
         question.update_attributes test_id: @test.id.to_s
       end
