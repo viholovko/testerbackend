@@ -18,8 +18,9 @@ class Test::TestsController < Test::BaseController
         when "numeric"
           result = {
             id: '',
-            value: answer['value'],
-            points: 0
+            text: answer['value'],
+            rate: question.order,
+            question_id: question.id.to_s
           }
           answer_date.push(result)
         when "check"
